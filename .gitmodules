@@ -1,0 +1,3 @@
+[submodule "RouletteAnalysis"]
+	path = RouletteAnalysis
+	url = git@github.com:po-miyasaka/RouletteAnalysis.git
