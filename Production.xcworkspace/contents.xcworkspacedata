@@ -5,7 +5,10 @@
       location = "group:RouletteAnalysis">
    </FileRef>
    <FileRef
-      location = "group:Production/Production.xcodeproj">
+      location = "group:Production/ProductioniOS.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Production/ProductionMac.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:RouletteAnalysis/App/Staging.xcodeproj">

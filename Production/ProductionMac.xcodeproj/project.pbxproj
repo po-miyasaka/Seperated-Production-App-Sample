@@ -11,6 +11,7 @@
 		D55F2A152A465B2E005C631F /* ProductionInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = D55F2A142A465B2E005C631F /* ProductionInfo.plist */; };
 		D55F2A172A465B5D005C631F /* AppIcon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D55F2A162A465B5D005C631F /* AppIcon.xcassets */; };
 		D55F2A192A465B6F005C631F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D55F2A182A465B6F005C631F /* Assets.xcassets */; };
+		D55F2A202A478D77005C631F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D55F2A1F2A478D77005C631F /* GoogleService-Info.plist */; };
 		D57833932A41B76400AF12F0 /* AppView in Frameworks */ = {isa = PBXBuildFile; productRef = D57833922A41B76400AF12F0 /* AppView */; };
 /* End PBXBuildFile section */
 
@@ -20,6 +21,8 @@
 		D55F2A142A465B2E005C631F /* ProductionInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = ProductionInfo.plist; sourceTree = SOURCE_ROOT; };
 		D55F2A162A465B5D005C631F /* AppIcon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AppIcon.xcassets; sourceTree = SOURCE_ROOT; };
 		D55F2A182A465B6F005C631F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D55F2A1B2A4675A1005C631F /* RouletteAnalysis.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RouletteAnalysis.entitlements; sourceTree = "<group>"; };
+		D55F2A1F2A478D77005C631F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D5CA15C52A22156D000E9E48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -38,6 +41,7 @@
 		D542252F2A2186ED000A71A9 = {
 			isa = PBXGroup;
 			children = (
+				D55F2A1F2A478D77005C631F /* GoogleService-Info.plist */,
 				D542253A2A2186ED000A71A9 /* RouletteAnalysis */,
 				D54225392A2186ED000A71A9 /* Products */,
 				D542254C2A218DF2000A71A9 /* Frameworks */,
@@ -58,6 +62,7 @@
 				D55F2A162A465B5D005C631F /* AppIcon.xcassets */,
 				D55F2A182A465B6F005C631F /* Assets.xcassets */,
 				D55F2A142A465B2E005C631F /* ProductionInfo.plist */,
+				D55F2A1B2A4675A1005C631F /* RouletteAnalysis.entitlements */,
 				D5CA15C52A22156D000E9E48 /* Info.plist */,
 				D542253B2A2186ED000A71A9 /* RouletteAnalysisApp.swift */,
 			);
@@ -82,6 +87,7 @@
 				D54225342A2186ED000A71A9 /* Sources */,
 				D54225352A2186ED000A71A9 /* Frameworks */,
 				D54225362A2186ED000A71A9 /* Resources */,
+				D55F2A212A4791A8005C631F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -110,7 +116,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D54225332A2186ED000A71A9 /* Build configuration list for PBXProject "Production" */;
+			buildConfigurationList = D54225332A2186ED000A71A9 /* Build configuration list for PBXProject "ProductionMac" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -119,6 +125,8 @@
 				Base,
 			);
 			mainGroup = D542252F2A2186ED000A71A9;
+			packageReferences = (
+			);
 			productRefGroup = D54225392A2186ED000A71A9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -136,10 +144,33 @@
 				D55F2A172A465B5D005C631F /* AppIcon.xcassets in Resources */,
 				D55F2A192A465B6F005C631F /* Assets.xcassets in Resources */,
 				D55F2A152A465B2E005C631F /* ProductionInfo.plist in Resources */,
+				D55F2A202A478D77005C631F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D55F2A212A4791A8005C631F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\nenv\necho ${SCRIPT_INPUT_FILE_COUNT}\necho ${SCRIPT_INPUT_FILE_0}\necho ${SCRIPT_INPUT_FILE_1}\n\necho  \"{BUILD_DIR%/Build/*} is \" \necho  ${BUILD_DIR%/Build/*}\n\necho \"{DWARF_DSYM_FOLDER_PATH}/{DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/{TARGET_NAME} is\"\necho ${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}\n\necho \"(SRCROOT)/(BUILT_PRODUCTS_DIR)/(INFOPLIST_PATH) is \"\necho ${SRCROOT}/${BUILT_PRODUCTS_DIR}/${INFOPLIST_PATH}\n\n#sh -v \n\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D54225342A2186ED000A71A9 /* Sources */ = {
@@ -153,7 +184,7 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		D54225442A2186EF000A71A9 /* Debug */ = {
+		D54225442A2186EF000A71A9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -186,7 +217,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -213,15 +244,16 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
-			name = Debug;
+			name = Release;
 		};
-		D54225472A2186EF000A71A9 /* Debug */ = {
+		D54225472A2186EF000A71A9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ../RouletteAnalysis/App/RouletteAnalysis/RouletteAnalysis.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = H6UU7923NK;
 				ENABLE_PREVIEWS = YES;
@@ -239,36 +271,36 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.4;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.po-miyasaka.RouletteAnalysis";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = macosx;
 				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
-			name = Debug;
+			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D54225332A2186ED000A71A9 /* Build configuration list for PBXProject "Production" */ = {
+		D54225332A2186ED000A71A9 /* Build configuration list for PBXProject "ProductionMac" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D54225442A2186EF000A71A9 /* Debug */,
+				D54225442A2186EF000A71A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 		D54225462A2186EF000A71A9 /* Build configuration list for PBXNativeTarget "RouletteAnalysis" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D54225472A2186EF000A71A9 /* Debug */,
+				D54225472A2186EF000A71A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
